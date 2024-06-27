@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>온기마켓</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- 타이틀 아이콘 -->
+    <link href="/img/fire_32.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    <!-- 화면 타이틑 글씨 Black Han Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!-- Topbar Start -->
+<div class="container-fluid">
+    <div class="row align-items-center py-3 px-xl-5">
+        <div class="col-lg-3 d-none d-lg-block">
+            <a href="" class="text-decoration-none">
+                <h1 class="m-0 display-5 font-weight-semi-bold">
+                    Warmth Market
+                </h1>
+            </a>
+        </div>
+        <div class="col-lg-9 d-flex justify-content-end align-items-center">
+            <div style="margin-top: 7px;" class="navbar-nav ml-auto py-0">
+                <h6 class="nav-item nav-link" th:if="${session.userName}"><span th:text="${session.userName}"></span> 님 환영합니다!</h6>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+
+
+<!-- Navbar Start -->
+<div class="container-fluid mb-5">
+    <div class="row border-top px-xl-5">
+        <div class="col-lg-3 d-none d-lg-block">
+            <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
+                <h6 class="m-0">카테고리</h6>
+                <i class="fa fa-angle-down text-dark"></i>
+            </a>
+            <nav class="collapse navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
+                <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
+                    <div class="nav-item dropdown">
+                        <a href="/goods/clothes" class="nav-item nav-link">의류&악세서리</a>
+                        <a href="/goods/furniture" class="nav-item nav-link">가구 및 가정용품</a>
+                        <a href="/goods/game" class="nav-item nav-link">게임 및 취미용품</a>
+                        <a href="/goods/books" class="nav-item nav-link">도서 및 음반</a>
+                        <a href="/goods/animal" class="nav-item nav-link">반려동물용품</a>
+                        <a href="/goods/beauty" class="nav-item nav-link">뷰티 및 건강</a>
+                        <a href="/goods/sports" class="nav-item nav-link">스포츠 및 레저용품</a>
+                        <a href="/goods/kid" class="nav-item nav-link">유아용품</a>
+                        <a href="/goods/electric" class="nav-item nav-link">전자제품</a>
+                        <a href="/goods/car" class="nav-item nav-link">차량용품</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="col-lg-9">
+            <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+                <a href="" class="text-decoration-none d-block d-lg-none">
+                    <h1 class="m-0 display-5 font-weight-semi-bold">Warmth Market</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="/" class="nav-item nav-link">온기마켓</a>
+                        <a href="/goods" class="nav-item nav-link">판매목록</a>
+                        <a href="/notice" class="nav-item nav-link">공지사항</a>
+                        <a href="/contact" class="nav-item nav-link active">문의하기</a>
+                    </div>
+                    <div class="navbar-nav ml-auto py-0">
+                        <!--세션에 저장된 값이 없다면-->
+                        <a th:unless="${session.userName}" href="/member/login" class="nav-item nav-link">로그인</a>
+                        <!--세션에 저장된 값이 있다면-->
+                        <a th:if="${session.userName}" href="/logout" class="nav-item nav-link">로그아웃</a>
+                        <a th:unless="${session.userName}" href="/member/join" class="nav-item nav-link">회원가입</a>
+                        <div class="nav-item dropdown ml-3">
+                            <a href="#" class="nav-link dropdown-toggle" style="color: black;" data-toggle="dropdown">마이페이지</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a href="/member/myinfo" class="dropdown-item">내정보</a>
+                                <a href="zzim.html" class="dropdown-item">찜목록</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Navbar End -->
+
+
+<section class="notice">
+    <div class="page-title">
+        <div class="container">
+            <h3>문의하기</h3>
+        </div>
+    </div>
+
+
+    <!-- board list area -->
+    <div id="board-list">
+        <div class="container">
+            <table class="board-table">
+                <thead class="border-head">
+                <tr>
+                    <th scope="col" class="th-date">번호</th>
+                    <th scope="col" class="th-title">제목</th>
+                    <th scope="col" class="th-date">이름</th>
+                    <th scope="col" class="th-date">날짜</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--        noticelist로 가져온것을 notice로 변수에 저장-->
+                <tr th:each="contact:${contactList}">
+                    <th style="text-align: center;" th:text="${contact.id}">1</th>
+                    <td style="text-align: center;" th:text="${contact.contactTitle}"></td>
+                    <td style="text-align: center;" th:text="${contact.contactName}">윤지섭</td>
+                    <td style="text-align: center;" th:text="${#temporals.format(contact.contactCreatedTime, 'yyyy-MM-dd')}">2024-03-28</td>
+                </tr>
+                </tbody>
+            </table>
+            <br/>
+            <div class="col-md-6 form-group">
+                <a href="/contactWrite" class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">등록</a>
+            </div>
+
+            <!--여백-->
+            <div style="margin-top: 20px;"></div>
+
+            <!-- 페이징 -->
+            <nav aria-label="페이징">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">이전</a>
+                    </li>
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="#">1 <span class="sr-only">(현재)</span></a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">다음</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</section>
+
+<!-- Footer Start -->
+<div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+    <div class="row px-xl-5 pt-5">
+        <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+            <a href="" class="text-decoration-none">
+                <h1 class="mb-4 display-5 font-weight-semi-bold">Warmth Market</h1>
+            </a>
+            <p>사람들 사이에서
+                온기를 느낄 수 있는 중고물품 거래공간
+                온기마켓 입니다 </p>
+            <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>312 street, DAEGU, KOREA</p>
+            <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>warmthmarket@warmth.com</p>
+            <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+82 010 0203 1202</p>
+        </div>
+    </div>
+    <div class="row border-top border-light mx-xl-5 py-4">
+        <div class="col-md-6 px-xl-0">
+            <p class="mb-md-0 text-center text-md-left text-dark">
+                &copy; <a class="text-dark font-weight-semi-bold" href="#">Your Site Name</a>. All Rights Reserved.
+
+                Distributed By <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+            </p>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+</body>
+
+</html>
